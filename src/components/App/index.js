@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import BlogPost from "../BlogPost";
-import Comment from "../Comment";
+import BlogPost from "../BlogPost/BlogPost";
+import Comment from "../Comment/Comment";
 
 function App() {
   const blog = {
@@ -13,10 +13,17 @@ function App() {
     imageAlt: "frontend vs frontend with react meme",
   };
 
-  return (
+  const comment = {
+    author: "Charlie Green",
+    content: "React, for frontend? Groundbreaking.",
+  }
 
-  <BlogPost blog={blog} />
-  )
+  return (
+    <div className="app">
+      <BlogPost blog={blog} />
+      <Comment comment={comment}/>
+    </div>
+  );
 }
 
 export default App;
