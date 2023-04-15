@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import BlogPost from "../BlogPost/BlogPost";
-import Comment from "../Comment/Comment";
+import CommentList from "../CommentList/CommentList";
+import CommentForm from "../CommentForm/CommentForm";
 
 function App() {
   const blog = {
@@ -13,15 +14,36 @@ function App() {
     imageAlt: "frontend vs frontend with react meme",
   };
 
-  const comment = {
-    author: "Charlie Green",
-    content: "React, for frontend? Groundbreaking.",
-  }
+  // create array of objects with comments
+  // send to commentList component as prop
+  const comments = [
+    {
+      id: "1",
+      author: "Billy Bootcamper",
+      content: "Great stuff!",
+    },
+    {
+      id: "2",
+      author: "Lizzy Hart",
+      content: "Lol",
+    },
+    {
+      id: "3",
+      author: "Charlie Green",
+      content: "Hello, great post",
+    },
+    {
+      id: "4",
+      author: "Nicholas Spring",
+      content: "Some useful insights, ta",
+    },
+  ];
 
   return (
     <div className="app">
       <BlogPost blog={blog} />
-      <Comment comment={comment}/>
+      <CommentList comments={comments} />
+      <CommentForm />
     </div>
   );
 }

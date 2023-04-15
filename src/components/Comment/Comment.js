@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-// import CommentList from "../CommentList";
+import React from "react";
 // import CommentForm from "../CommentForm";
 
 /* 
-- enter 'comment' object from App as prop
-- JSX - set each comment item as element in a comment div
-- initials function (turning author name into author initials)
+- enter 'comment' object from CommentList as prop 
+    - props now changed to author & content from CommentList ✅
+- JSX - set each comment item as element in a comment div ✅
+- initials function (turning author name into author initials) ✅
     - split() on author string to create names array [first name, second name]
     - use .map function to iterate through array and return first character in each array item [f, s]
     - save this as new array 'initialsArray'
@@ -13,9 +13,10 @@ import React, { useState } from "react";
 - call initials function inside JSX
 */
 
-function Comment({ comment }) {
+function Comment({ author, content }) {
+
   const initials = () => {
-    const nameArray = comment.author.split(" ");
+    const nameArray = author.split(" ");
     const initialsArray = nameArray.map((name) => {
       return name.charAt(0);
     });
@@ -26,8 +27,8 @@ function Comment({ comment }) {
   return (
     <div id="comment">
       <h3 id="author-initials">{initials()}</h3>
-      <h4>{comment.author}</h4>
-      <h4>{comment.content}</h4>
+      <h4>{author}</h4>
+      <h4>{content}</h4>
     </div>
   );
 }
