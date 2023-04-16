@@ -14,8 +14,11 @@ function App() {
     imageAlt: "frontend vs frontend with react meme",
   };
 
-  // create array of objects with comments
-  // send to commentList component as prop
+
+/*
+// create array of objects with comments
+// send to commentList component as prop
+
   const comments = [
     {
       id: "1",
@@ -38,12 +41,29 @@ function App() {
       content: "Some useful insights, ta",
     },
   ];
+*/
+
+// adjust comments using useState (begins as empty array)
+const [comments, setComments] = useState([]);
+
+// function to add comment to list 
+function addToCommentList(newComment) :
+// uses spread operator to include previous array of comments before new comment is added
+  setComments([...comments, newComment]);
+
+
+
+function onSubmit () {
+  // add to comments
+  // 
+}
+
 
   return (
     <div className="app">
       <BlogPost blog={blog} />
       <CommentList comments={comments} />
-      <CommentForm />
+      <CommentForm onSubmit={onSubmit}/>
     </div>
   );
 }

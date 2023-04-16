@@ -1,5 +1,4 @@
 import React from "react";
-// import CommentForm from "../CommentForm";
 
 /* 
 - enter 'comment' object from CommentList as prop 
@@ -10,7 +9,7 @@ import React from "react";
     - use .map function to iterate through array and return first character in each array item [f, s]
     - save this as new array 'initialsArray'
     - return .map result array (initialsArray) in the initials function
-- call initials function inside JSX
+- call initials function inside JSX ✅
 */
 
 function Comment({ author, content }) {
