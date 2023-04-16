@@ -12,8 +12,7 @@ import React from "react";
 - call initials function inside JSX ✅
 */
 
-function Comment({ author, content }) {
-
+function Comment({ id, author, content }) {
   // const initials = () => {
   //   const nameArray = author.split(" ");
   //   const initialsArray = nameArray.map((name) => {
@@ -24,11 +23,11 @@ function Comment({ author, content }) {
   // };
 
   return (
-    <div id="comment">
+    <li id="comment">
       {/* <h3 id="author-initials">{initials()}</h3> */}
       <h4>{author}</h4>
       <h4>{content}</h4>
-    </div>
+    </li>
   );
 }
 

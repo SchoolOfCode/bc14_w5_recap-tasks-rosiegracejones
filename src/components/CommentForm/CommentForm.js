@@ -11,23 +11,25 @@
     - create a function that gets text from comment box and assigns to empty string ✅
     - hand down contentText, onSubmit & contentInput Change as props ✅
     - create onSubmit function that when called calls add to comment function & resets input box to empty
-
 */
 
-import React from 'react';
+import React from "react";
 
-function CommentForm({ onSubmit, contentInputChange, contentText }) {
-
+function CommentForm({ contentText, contentInputChange, onSubmit }) {
   return (
     <div className="comment-form">
-      <form>
-        {/* <input id="comment-author"></input> */}
+      {/* <input id="comment-author"></input> */}
 
-        <input id="comment-content" type="text" value={contentText} onChange={contentInputChange} placeholder="Enter your comment here." ></input>
-        <button onClick={onSubmit}>Submit</button>
-      </form>
+      <input
+        id="comment-content"
+        type="text"
+        value={contentText}
+        onChange={contentInputChange}
+        placeholder="Enter your comment here."
+      />
+      <button onClick={onSubmit}>Submit</button>
     </div>
-  )
+  );
 }
 
 export default CommentForm;

@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useState } from "react";
 import BlogPost from "../BlogPost/BlogPost";
 import CommentList from "../CommentList/CommentList";
 import CommentForm from "../CommentForm/CommentForm";
@@ -14,7 +14,7 @@ function App() {
     imageAlt: "frontend vs frontend with react meme",
   };
 
-/*
+  /*
 // create array of objects with comments
 // send to commentList component as prop
 
@@ -42,33 +42,38 @@ function App() {
   ];
 */
 
-// adjust comments using useState (begins as empty array)
-const [comments, setComments] = useState([]);
+  // adjust comments using useState (begins as empty array)
+  const [commentList, setCommentList] = useState([]);
 
-// function to add comment to list 
-function addToCommentList(newComment) {
-// uses spread operator to include previous array of comments before new comment is added
-  setComments([...comments, newComment]);
-}
+  // useState to set contentText to empty string
+  const [contentText, setContentText] = useState("");
 
-// useState to set contentText to empty string
-const [contentText, setContentText] = useState("");
+  // function to add comment to list
+  function addToCommentList(newComment) {
+    // uses spread operator to include previous array of comments before new comment is added
+    setCommentList([...commentList, newComment]);
+  }
 
-//function to retrieve content input text 
-function contentInputChange(event) {
-  setContentText(event.target.value);
-}
+  // function to retrieve content input text
+  function contentInputChange(event) {
+    setContentText(event.target.value);
+  }
 
-function onSubmit () {
-  addToCommentList(contentText);
-  setContentText("");
-}
+  // function to add input text to comment list - to attach to button
+  function onSubmit() {
+    addToCommentList(contentText);
+    setContentText("");
+  }
 
   return (
     <div className="app">
       <BlogPost blog={blog} />
-      <CommentList comments={comments} />
-      <CommentForm onSubmit={onSubmit} contentInputChange={contentInputChange} contentText={contentText}/>
+      <CommentList commentList={commentList} />
+      <CommentForm
+        contentText={contentText}
+        contentInputChange={contentInputChange}
+        onSubmit={onSubmit}
+      />
     </div>
   );
 }

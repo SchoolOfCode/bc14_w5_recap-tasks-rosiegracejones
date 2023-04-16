@@ -8,18 +8,20 @@ import Comment from "../Comment/Comment";
 - props have now changed for Comment component - change to author & content ✅
 */
 
-function CommentList({ comments }) {
+function CommentList({ commentList }) {
   /* const comment = {author: "Charlie Green", content: "React, for frontend? Groundbreaking." }; */
 
   return (
     <div id="comment-list">
-      {comments.map((item) => {
-        return <Comment
-            key={item.id}
-            author={item.author}
-            content={item.content}
-          />;
-      })}
+    <ul>
+      {commentList.map((comment, index) => (
+          <Comment 
+          key={index} 
+          id={index} 
+          content={comment} 
+          />
+        ))}
+      </ul>
     </div>
   );
 }
