@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from "react";
 import BlogPost from "../BlogPost/BlogPost";
 import CommentList from "../CommentList/CommentList";
 import CommentForm from "../CommentForm/CommentForm";
@@ -13,7 +13,6 @@ function App() {
     imageSrc: "https://tsh.io/wp-content/uploads/2019/12/react-meme1_.png",
     imageAlt: "frontend vs frontend with react meme",
   };
-
 
 /*
 // create array of objects with comments
@@ -47,23 +46,29 @@ function App() {
 const [comments, setComments] = useState([]);
 
 // function to add comment to list 
-function addToCommentList(newComment) :
+function addToCommentList(newComment) {
 // uses spread operator to include previous array of comments before new comment is added
   setComments([...comments, newComment]);
-
-
-
-function onSubmit () {
-  // add to comments
-  // 
 }
 
+// useState to set contentText to empty string
+const [contentText, setContentText] = useState("");
+
+//function to retrieve content input text 
+function contentInputChange(event) {
+  setContentText(event.target.value);
+}
+
+function onSubmit () {
+  addToCommentList(contentText);
+  setContentText("");
+}
 
   return (
     <div className="app">
       <BlogPost blog={blog} />
       <CommentList comments={comments} />
-      <CommentForm onSubmit={onSubmit}/>
+      <CommentForm onSubmit={onSubmit} contentInputChange={contentInputChange} contentText={contentText}/>
     </div>
   );
 }

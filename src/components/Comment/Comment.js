@@ -14,18 +14,18 @@ import React from "react";
 
 function Comment({ author, content }) {
 
-  const initials = () => {
-    const nameArray = author.split(" ");
-    const initialsArray = nameArray.map((name) => {
-      return name.charAt(0);
-    });
+  // const initials = () => {
+  //   const nameArray = author.split(" ");
+  //   const initialsArray = nameArray.map((name) => {
+  //     return name.charAt(0);
+  //   });
 
-    return initialsArray;
-  };
+  //   return initialsArray;
+  // };
 
   return (
     <div id="comment">
-      <h3 id="author-initials">{initials()}</h3>
+      {/* <h3 id="author-initials">{initials()}</h3> */}
       <h4>{author}</h4>
       <h4>{content}</h4>
     </div>

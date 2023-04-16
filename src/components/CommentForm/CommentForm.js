@@ -1,36 +1,29 @@
-import React, { useState }from 'react';
-
 /*
-- JSX elements - form, input(x2), submit button
-- enter onSubmit prop from app:
-    - create an event key onClick to button elemet
-
-- in button element, call onSubmit function
-    - if comment input is empty, do not call onSubmit
-    - when called, it should clear comment input but not name
+- JSX elements - form, input(x2), submit button ✅
+- create an event key onClick to button element ✅
+    - call onSubmit function ✅
+- set comment input as contentText using prop as 'value' ✅
 
 - In App Component:
-    - change comments array to be an empty array using useState in App
-    - create a 'add to comment list' function using spread operator & setComments
-    - create a function that gets text from comment box
-    - create onSubmit function that adds text to comment list & resets text
+    - change comments array to be an empty array using useState in App ✅
+    - create a 'add to comment list' function using spread operator & setComments ✅
+    - create empty string useState with individual comment text ✅
+    - create a function that gets text from comment box and assigns to empty string ✅
+    - hand down contentText, onSubmit & contentInput Change as props ✅
+    - create onSubmit function that when called calls add to comment function & resets input box to empty
+
 */
 
-function CommentForm({ onSubmit }) {
+import React from 'react';
 
-// to make comment submit when pressing enter:
-// const handleKeyPress = (event) => {
-  // if (event.key === "Enter") {
-    // onSubmit();
-  // }
-// }
-
+function CommentForm({ onSubmit, contentInputChange, contentText }) {
 
   return (
     <div className="comment-form">
       <form>
-        <input></input>
-        {/* <input type="text" value={} onChange={onInputChange} placeholder="Comment goes here" onKeyPress={handleKeyPress}></input> */}
+        {/* <input id="comment-author"></input> */}
+
+        <input id="comment-content" type="text" value={contentText} onChange={contentInputChange} placeholder="Enter your comment here." ></input>
         <button onClick={onSubmit}>Submit</button>
       </form>
     </div>
