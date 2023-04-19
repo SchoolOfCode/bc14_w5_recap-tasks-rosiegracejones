@@ -13,21 +13,44 @@
     - create onSubmit function that when called calls add to comment function & resets input box to empty
 */
 
-import React from "react";
+import React, { useState } from "react";
 
-function CommentForm({ contentText, contentInputChange, onSubmit }) {
+
+function CommentForm({
+  // props handed in from App component
+  contentText,
+  contentInputChange,
+  authorInputChange,
+  commentAuthor,
+  onSubmit,
+  blog
+}) 
+{
+
   return (
     <div className="comment-form">
-      {/* <input id="comment-author"></input> */}
-
+      {/*author input box*/}
+      <input
+        id="comment-author"
+        type="text"
+        //value is commentAuthor prop from App
+        value={commentAuthor}
+        //onchange calls authorInputChange function prop from App
+        onChange={authorInputChange}
+        placeholder="What's your name?"
+      />
+      
+      {/*content input box*/}
       <input
         id="comment-content"
         type="text"
         value={contentText}
         onChange={contentInputChange}
-        placeholder="Enter your comment here."
+        placeholder={`Tell ${blog.author} what you think of their post!`}
       />
+
       <button onClick={onSubmit}>Submit</button>
+
     </div>
   );
 }

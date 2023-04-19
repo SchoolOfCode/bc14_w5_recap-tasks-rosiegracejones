@@ -13,13 +13,11 @@ function CommentList({ commentList }) {
 
   return (
     <div id="comment-list">
-    <ul>
-      {commentList.map((comment, index) => (
-          <Comment 
-          key={index} 
-          id={index} 
-          content={comment} 
-          />
+      <ul>
+        {commentList.map((comment) => (
+          <div key={comment.id}>
+            <Comment id={comment.id} author={comment.author} content={comment.content} />
+          </div>
         ))}
       </ul>
     </div>

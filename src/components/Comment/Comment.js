@@ -13,18 +13,36 @@ import React from "react";
 */
 
 function Comment({ id, author, content }) {
-  // const initials = () => {
-  //   const nameArray = author.split(" ");
-  //   const initialsArray = nameArray.map((name) => {
-  //     return name.charAt(0);
-  //   });
+  /*In the code
 
-  //   return initialsArray;
-  // };
+/* 
+sets initials variable: 
+
+- author.split(' ') splits author name at space character and puts into an array: [first name, last name]
+
+- .map((name) => name[0]) iterates over each name in array and returns new array with first letter of each name: [f, l]
+
+- .join('') is called on new array and concatenates back into one string: 'fl'
+
+- toUpperCase is called on initial string to convert to uppercase: 'FL'
+*/
+
+  let initials = author.split(' ').map((name) => name[0]).join('').toUpperCase();
+
+/*
+- if length of initials string is greater than 3
+    - initials.slice(0,2) returns string containing first two characters of initials string 
+    - initials.slice(-1) returns string containing last character of initials string
+    - these are then concatenated with + operator to create new string an reassigned to initials variable (initials =)
+*/
+
+  if (initials.length > 3) {
+    initials = initials.slice(0,2) + initials.slice(-1);
+  } 
 
   return (
     <li id="comment">
-      {/* <h3 id="author-initials">{initials()}</h3> */}
+      <h3 id="author-initials">{initials}</h3>
       <h4>{author}</h4>
       <h4>{content}</h4>
     </li>

@@ -8,8 +8,7 @@ function App() {
     title: "Introduction to React",
     author: "Rosie Jones",
     datePosted: "15/04/2023",
-    content: `It's been a week learning React. 
-    Props can be confusing, but it's a good job you have .maps to steer you in the right direction.`,
+    content: `It's been a week learning React. Props can be confusing, but it's a good job you have .maps to steer you in the right direction.`,
     imageSrc: "https://tsh.io/wp-content/uploads/2019/12/react-meme1_.png",
     imageAlt: "frontend vs frontend with react meme",
   };
@@ -48,20 +47,41 @@ function App() {
   // useState to set contentText to empty string
   const [contentText, setContentText] = useState("");
 
+  // useState to set commentAuthor to empty string
+  const [commentAuthor, setCommentAuthor] = useState("");
+
   // function to add comment to list
-  function addToCommentList(newComment) {
-    // uses spread operator to include previous array of comments before new comment is added
+  // author & content as placeholders - we will enter commentAuthor & contentText when calling function
+  function addToCommentList(author, content) {
+    // defining newcomment object  and handing in author & content parameters
+    const newComment = {
+      // generates random id
+      id: Date.now().toString(),
+      // sets author item and content item to match parameters (commentAuthor & contentText )
+      author: author,
+      content: content,
+    };
+    // setCommentList array to be whatever is already in the list, plus newComment
     setCommentList([...commentList, newComment]);
   }
 
   // function to retrieve content input text
   function contentInputChange(event) {
     setContentText(event.target.value);
+    console.log(contentText);
   }
 
-  // function to add input text to comment list - to attach to button
+  // function to retrieve author input text and set as commentAuthor
+  function authorInputChange(event) {
+    setCommentAuthor(event.target.value);
+    console.log(commentAuthor);
+  }
+
+  // onsubmit function that determine what happens when submit button is clicked
   function onSubmit() {
-    addToCommentList(contentText);
+    // calls add to list function with author & content inputs as parameters
+    addToCommentList(commentAuthor, contentText);
+    // resets content input box to be empty (author input will remain filled)
     setContentText("");
   }
 
@@ -72,7 +92,10 @@ function App() {
       <CommentForm
         contentText={contentText}
         contentInputChange={contentInputChange}
+        authorInputChange={authorInputChange}
+        commentAuthor={commentAuthor}
         onSubmit={onSubmit}
+        blog={blog}
       />
     </div>
   );
