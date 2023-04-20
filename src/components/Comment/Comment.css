@@ -1,0 +1,24 @@
+#author-initials {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+
+    line-height: 1;
+    border-radius: 50%;
+    /* background colour gradient */
+    background: #e85ac0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+#author-name {
+
+}
