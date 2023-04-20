@@ -1,4 +1,5 @@
 import React from "react";
+import "./BlogPost.css";
 
 // enter 'blog' object from App as prop
 // JSX - set each blog item as element in a blogpost div
